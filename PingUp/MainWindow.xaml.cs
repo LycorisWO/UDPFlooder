@@ -165,7 +165,7 @@ namespace UDPFlooder
         {
             if (int.TryParse(PacketCountTextBox.Text, out int value))
             {
-                packetCount = value;
+                packCount = value;
             }
         }
 
