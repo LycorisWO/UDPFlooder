@@ -1,0 +1,40 @@
+﻿<Window x:Class="UDPFlooder.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="L->U.F"
+        Height="200"
+        Width="436"
+        WindowStyle="None"
+        Background="#2D2D30"
+        AllowsTransparency="True"
+        FontFamily="Consolas"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown">
+    <Grid HorizontalAlignment="Left" VerticalAlignment="Center" Width="823">
+        <!-- Custom Title Bar -->
+        <Grid Background="#1E1E1E" Height="22" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Lyco's UDP.Flooder" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="White"/>
+            <Button Content="X" Click="Close_Click" Margin="412,2,391,2" BorderBrush="{x:Null}"/>
+        </Grid>
+
+        <Slider x:Name="ValueSlider" Minimum="0" Maximum="1000" Width="300" ValueChanged="ValueSlider_ValueChanged" Margin="10,70,490,109" Foreground="#FF232323"/>
+        <TextBox x:Name="ValueTextBox" Width="100" TextChanged="ValueTextBox_TextChanged" Margin="315,70,385,0" Text="100" VerticalAlignment="Top"/>
+        <ToggleButton x:Name="OnOffToggle" Content="Off" Width="100" Height="30" Click="OnOffToggle_Click" Margin="315,160,385,10" BorderBrush="{x:Null}"/>
+        <TextBox x:Name="ipBox" TextWrapping="Wrap" Text="27.27.27.27" Margin="16,170,700,13"/>
+        <TextBox x:Name="portBox" TextWrapping="Wrap" Text="80" Margin="128,170,627,13"/>
+        <TextBlock Text="&gt; IP" VerticalAlignment="Top" Margin="16,156,770,0" Foreground="White"/>
+        <TextBlock Text="&gt; Port" VerticalAlignment="Top" Margin="128,156,627,0" Foreground="White"/>
+        <TextBlock VerticalAlignment="Top" Margin="13,51,490,0" Foreground="White" Text="&gt; Delay (ms)"/>
+        <TextBox x:Name="packetBox" TextWrapping="Wrap" Text="0" Margin="269,167,0,15" HorizontalAlignment="Left" IsEnabled="False"/>
+        <TextBlock Text="Packets-&gt;" VerticalAlignment="Top" Margin="201,168,554,0" Foreground="White"/>
+        <TextBlock VerticalAlignment="Top" Margin="13,100,490,0" Foreground="White" Text="&gt; Packet Size"/>
+        <TextBox x:Name="PacketTextBox" Width="100" TextChanged="PacketTextBox_TextChanged" Margin="326,121,397,0" Text="1" VerticalAlignment="Top"/>
+        <Slider x:Name="PackSlider" Minimum="1" Maximum="1472" ValueChanged="PacketSlider_ValueChanged" Margin="22,119,501,60" Foreground="#FF232323"/>
+        <TextBox x:Name="PacketCountTextBox" TextChanged="PacketCount_TextChanged" Margin="327,31,0,0" Text="1" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <TextBlock VerticalAlignment="Top" Margin="226,31,501,0" Foreground="White" Text="&gt; Packet Count"/>
+    </Grid>
+</Window>
